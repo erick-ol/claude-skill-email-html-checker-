@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="https://github.com/erick-ol/claude-skill-email-html-checker-"
+BASE="https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main"
 PROJECT=false
 
 for arg in "$@"; do
@@ -20,20 +20,17 @@ fi
 
 echo "Installing email-html-checker ($SCOPE)..."
 
-if ! command -v git &>/dev/null; then
-  echo "Error: git is required but not found. Install git and try again." >&2
-  exit 1
-fi
-
 if [ -d "$DEST" ]; then
   echo "Removing previous installation..."
   rm -rf "$DEST"
 fi
 
-mkdir -p "$(dirname "$DEST")"
+mkdir -p "$DEST/scripts"
 
-git clone --depth 1 "$REPO" "$DEST"
-rm -rf "$DEST/.git"
+curl -fsSL "$BASE/SKILL.md"            -o "$DEST/SKILL.md"
+curl -fsSL "$BASE/caniemail-slim.json" -o "$DEST/caniemail-slim.json"
+curl -fsSL "$BASE/scripts/build.js"    -o "$DEST/scripts/build.js"
+curl -fsSL "$BASE/scripts/filter.js"   -o "$DEST/scripts/filter.js"
 
 echo ""
 echo "Installed to $DEST"
