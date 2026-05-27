@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BASE="https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main"
+BASE="https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker/main"
 PROJECT=false
 
 for arg in "$@"; do

@@ -19,12 +19,12 @@ A skill that audits email HTML against the [caniemail.com](https://www.caniemail
 
 **Global** — available in all your projects:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker/main/install.sh | bash
 ```
 
 **Project** — this project only (run from your project root, then commit `.claude/skills/`):
 ```bash
-curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main/install.sh | bash -s -- --project
+curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker/main/install.sh | bash -s -- --project
 ```
 
 To update, re-run the same command.
@@ -33,7 +33,7 @@ To update, re-run the same command.
 
 **Requirements:** Pro, Max, Team, or Enterprise plan · Code execution enabled
 
-1. Download **[email-html-checker.zip](https://github.com/erick-ol/claude-skill-email-html-checker-/releases/latest)** from Releases
+1. Download **[email-html-checker.zip](https://github.com/erick-ol/claude-skill-email-html-checker/releases/latest)** from Releases
 2. Go to **Settings → Customize → Skills → +**
 3. Upload the ZIP and start a new conversation
 
