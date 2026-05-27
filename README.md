@@ -17,11 +17,17 @@ A skill that audits email HTML against the [caniemail.com](https://www.caniemail
 
 **Requirements:** [Claude Code](https://claude.ai/code) (any tier) · [Node.js](https://nodejs.org) ≥ 18
 
+**Global** — available in all your projects:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main/install.sh | bash
 ```
 
-Restart Claude Code after installing. To update, re-run the same command.
+**Project** — this project only (run from your project root, then commit `.claude/skills/`):
+```bash
+curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main/install.sh | bash -s -- --project
+```
+
+To update, re-run the same command.
 
 ### Claude.ai
 
