@@ -1,6 +1,6 @@
 # email-html-checker
 
-A [Claude Code](https://claude.ai/code) skill that audits email HTML against the [caniemail.com](https://www.caniemail.com) database and produces a compatibility report with automatic fixes where possible.
+A skill that audits email HTML against the [caniemail.com](https://www.caniemail.com) database and produces a compatibility report with automatic fixes where possible. Works in both **Claude Code** and **Claude.ai**.
 
 ## What it does
 
@@ -11,20 +11,25 @@ A [Claude Code](https://claude.ai/code) skill that audits email HTML against the
 - Outputs a corrected HTML with `<!-- FIXED: ... -->` comments
 - Responds in **English or Portuguese** based on your message
 
-## Requirements
-
-- [Claude Code](https://claude.ai/code) (any tier)
-- [Node.js](https://nodejs.org) ≥ 18 (used by the filter and build scripts)
-
 ## Install
+
+### Claude Code
+
+**Requirements:** [Claude Code](https://claude.ai/code) (any tier) · [Node.js](https://nodejs.org) ≥ 18
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/erick-ol/claude-skill-email-html-checker-/main/install.sh | bash
 ```
 
-Restart Claude Code after installing.
+Restart Claude Code after installing. To update, re-run the same command.
 
-To update, re-run the same command.
+### Claude.ai
+
+**Requirements:** Pro, Max, Team, or Enterprise plan · Code execution enabled
+
+1. Download **[email-html-checker.zip](https://github.com/erick-ol/claude-skill-email-html-checker-/releases/latest)** from Releases
+2. Go to **Settings → Customize → Skills → +**
+3. Upload the ZIP and start a new conversation
 
 ## Usage
 
