@@ -12,14 +12,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version
+        id: version
+        run: |
+          MSG=$(git log -1 --pretty=%B)
+          LATEST=$(git tag -l "v*" | sort -V | tail -1)
+          LATEST=${LATEST:-v0.0.0}
+          IFS='.' read -r MAJOR MINOR PATCH <<< "${LATEST#v}"
+
+          if echo "$MSG" | grep -qE "^feat(\(.+\))?!:|BREAKING CHANGE:"; then
+            NEW="v$((MAJOR + 1)).0.0"
+          elif echo "$MSG" | grep -qE "^feat(\(.+\))?:"; then
+            NEW="v${MAJOR}.$((MINOR + 1)).0"
+          else
+            NEW="v${MAJOR}.${MINOR}.$((PATCH + 1))"
+          fi
+
+          git tag "$NEW"
+          git push origin "$NEW"
+          echo "tag=$NEW" >> "$GITHUB_OUTPUT"
 
       - name: Build ZIP
         run: bash make-zip.sh
 
-      - name: Publish to latest release
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: Latest
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
           body: "Download `email-html-checker.zip` and upload it in Claude.ai → Settings → Customize → Skills → +"
           files: email-html-checker.zip

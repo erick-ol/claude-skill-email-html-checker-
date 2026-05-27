@@ -27,10 +27,11 @@ fi
 
 mkdir -p "$DEST/scripts"
 
-curl -fsSL "$BASE/SKILL.md"            -o "$DEST/SKILL.md"
-curl -fsSL "$BASE/caniemail-slim.json" -o "$DEST/caniemail-slim.json"
-curl -fsSL "$BASE/scripts/build.js"    -o "$DEST/scripts/build.js"
-curl -fsSL "$BASE/scripts/filter.js"   -o "$DEST/scripts/filter.js"
+curl -fsSL "$BASE/SKILL.md"             -o "$DEST/SKILL.md"
+curl -fsSL "$BASE/caniemail-data.json"  -o "$DEST/caniemail-data.json"
+curl -fsSL "$BASE/caniemail-slim.json"  -o "$DEST/caniemail-slim.json"
+curl -fsSL "$BASE/scripts/build.js"     -o "$DEST/scripts/build.js"
+curl -fsSL "$BASE/scripts/filter.js"    -o "$DEST/scripts/filter.js"
 
 echo ""
 echo "Installed to $DEST"
